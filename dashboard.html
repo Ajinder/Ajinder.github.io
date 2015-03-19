@@ -1,0 +1,83 @@
+﻿<!doctype html>
+ <html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title> Sample App </title>
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+<!-- app stylesheet -->
+<link rel="stylesheet" href="Content/css/app.css">
+    
+<link rel="icon" href="Content/favicon.ico">
+</head>
+ <body ng-app="calcApp">
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <a class="navbar-brand" href="#">Sample App</a>
+             </div>
+             <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav navbar-right">
+                     <li class="active"><a href="#">Home</a></li>
+                     <li><a href="#about">About</a></li>
+                     <li><a href="#contact">Contact</a></li>
+                 </ul>
+                 <!-- Login Section -->
+                 <!--<form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>-->
+             </div>
+             <!--/.navbar-collapse -->
+         </div>
+     </nav>
+     <div class="container">
+         <h3> Hello Guys , check the records below! </h3>
+     </div>
+     <hr />
+     <div class="container" ng-controller="MainController as ctrl">
+         <!-- Here show the records -->
+         <div class="row">
+             <!-- Each Div contains a Record. -->
+             <!-- Use ng-repeat for records -->
+             <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="record in ctrl.records">
+                 <div class="thumbnail" style="border-radius:6px">
+                     <img ng-src="{{record.imagePath}}" alt="..." height="200" width="200" class="img-circle">  <!-- Image -->
+                     <div class="caption">
+                         <a href="#">{{ record.Name }}</a>
+                         <p>{{ record.Description }}</p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- /container -->
+     <footer class="footer">
+         <div class="container">
+             <p class="text-muted">All right reserved @Ajinder 2015.</p>
+         </div>
+     </footer>
+     <!-- Placed at the end of the document so the pages load faster -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+     <!-- Latest compiled and minified JavaScript -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+     <script src="Content/scripts/app.js"></script>
+     <script src="Content/scripts/controllers/calcController.js"></script>
+ </body>
+ </html>
