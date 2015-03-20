@@ -1,28 +1,23 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="phonecatApp">
 <head>
   <meta charset="utf-8">
   <title>Google Phone Gallery</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <script src="bower_components/angular/angular.js"></script>
-</head>
-<body>
-
+  <script src="js/app.js"></script>
+  <script src="js/controllers/controller.js"></script>
+  </head>
+<body ng-controller="PhoneListCtrl as phone">
   <ul>
-  <li>
-    <span>Nexus S</span>
+  <li ng-repeat="phone in phone.phones">
+    <span>{{phone.name}}</span>
     <p>
-      Fast just got faster with Nexus S.
-    </p>
-  </li>
-  <li>
-    <span>Motorola XOOM™ with Wi-Fi</span>
-    <p>
-      The Next, Next Generation tablet.
+      {{phone.snippet}}
     </p>
   </li>
   </ul>
-  <b>The total number of phone: {{ 2+ 5}}</b>
+  <b>The total number of phone: {{ phone.phones.length }}</b>
 </body>
 </html>
