@@ -7,8 +7,34 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-        <a href="http://maps.google.com/maps?saddr=Google+Inc,+8th+Avenue,+New+York,+NY&daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&directionsmode=transit">Click here</a>
+    <a href="http://maps.google.com/maps?saddr=Google+Inc,+8th+Avenue,+New+York,+NY&daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&directionsmode=transit">Click here</a>
     <a href="http://maps.google.com/maps?saddr=30.7046486,76.71787259999996&daddr=30.7333,76.7794&directionsmode=transit">Click here1</a>
 
+    <div class="container">
+        <div class="row">
+            <input id="camera" type="file" accept="image/*;capture=camera">
+        </div>
+    </div>
+    <script type="text/javascript">
+        var errorCallback = function (e) {
+            console.log('Reeeejected!', e);
+        };
+
+        navigator.getUserMedia = navigator.getUserMedia ||
+                              navigator.webkitGetUserMedia ||
+                              navigator.mozGetUserMedia ||
+                              navigator.msGetUserMedia;
+
+        // var video = document.querySelector('video');
+        var camera = document.getElementById('camera');
+
+        if (navigator.getUserMedia) {
+            navigator.getUserMedia({ video: true }, function (stream) {
+                camera.src = window.URL.createObjectURL(stream);
+            }, errorCallback);
+        } else {
+            camera.src = 'somevideo.webm'; // fallback.
+        }
+    </script>
 </body>
 </html>
